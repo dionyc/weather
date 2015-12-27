@@ -23,16 +23,16 @@ var Weather = React.createClass ({
 },
 
   render: function() {
-    return <View>
+    return <View style={styles.container}>
     <MapView
       annotations={[this.state.pin]}
       onRegionChangeComplete={this.onRegionChangeComplete}
       style={styles.map}>
     </MapView>
-      <View>
-        <Text>{this.state.city}</Text>
-        <Text>{this.state.temperature}</Text>
-        <Text>{this.state.description}</Text>
+      <View style={styles.textWrapper}>
+        <Text style={styles.text}>{this.state.city}</Text>
+        <Text style={styles.text}>{this.state.temperature}</Text>
+        <Text style={styles.text}>{this.state.description}</Text>
       </View>
     </View>
   },
@@ -58,7 +58,7 @@ var styles = StyleSheet.create ({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColot: '#f5fcff'
+    backgroundColor: '#f5fcff'
   },
   map: {
     flex: 2,
@@ -67,7 +67,11 @@ var styles = StyleSheet.create ({
   textWrapper: {
     flex: 1,
     alignItems: 'center'
-  }
+  },
+text: {
+  fontSize: 30,
+}
+
 });
 
 AppRegistry.registerComponent('weather', () => Weather);
